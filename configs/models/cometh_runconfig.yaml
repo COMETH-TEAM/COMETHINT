@@ -14,10 +14,10 @@ unified_metric:
     word_layer: 24
     loss: mse
     dropout: 0.1
-    batch_size: 16
-    train_data: 
+    batch_size: 1
+    train_data:
       - data/train_ref.csv
-    validation_data: 
+    validation_data:
       - data/val_ref.csv
     hidden_sizes:
       - 3072
@@ -28,7 +28,7 @@ unified_metric:
       - src
       - ref
     word_level_training: False
-    
+
 trainer: ../trainer.yaml
 early_stopping: ../early_stopping.yaml
 model_checkpoint: ../model_checkpoint.yaml

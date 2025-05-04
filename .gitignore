@@ -1,6 +1,5 @@
 *.pkl
 *DS_Store 
-data/
 lightning_logs/
 wmt21/
 
@@ -129,3 +128,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+wandb/
+checkpoints/

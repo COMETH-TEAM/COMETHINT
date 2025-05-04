@@ -64,19 +64,19 @@ ComeTHint builds upon the multilingual foundation of XLM-R with additional fine-
 ## Training Your Own Metric
 
 ```bash
-comethint-train --cfg configs/models/{your_model_config}.yaml
+comet-train --cfg configs/models/{your_model_config}.yaml
 ```
 
 You can then use your own metric:
 
 ```bash
-comethint-score -s src.th -t hyp1.en -r ref.en --model PATH/TO/CHECKPOINT
+comet-score -s src.th -t hyp1.en -r ref.en --model PATH/TO/CHECKPOINT
 ```
 
 ## Testing
 
 ```bash
-poetry run coverage run --source=comethint -m unittest discover
+poetry run coverage run --source=comet -m unittest discover
 poetry run coverage report -m
 ```
 

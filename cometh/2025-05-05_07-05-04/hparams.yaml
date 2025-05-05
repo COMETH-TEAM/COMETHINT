@@ -1,0 +1,85 @@
+model_config:
+  activations: Tanh
+  batch_size: 1
+  cross_entropy_weights: null
+  dropout: 0.1
+  encoder_learning_rate: 1.0e-06
+  encoder_model: XLM-RoBERTa
+  error_labels:
+  - minor
+  - major
+  final_activation: null
+  hidden_sizes:
+  - 3072
+  - 1024
+  input_segments:
+  - mt
+  - src
+  - ref
+  keep_embeddings_frozen: true
+  layer_norm: true
+  layer_transformation: sparsemax
+  layerwise_decay: 0.95
+  learning_rate: 1.5e-05
+  load_pretrained_weights: true
+  local_files_only: false
+  loss: mse
+  loss_lambda: 0.65
+  nr_frozen_epochs: 0.3
+  optimizer: AdamW
+  pretrained_model: microsoft/infoxlm-large
+  sent_layer: mix
+  train_data:
+  - data/train_ref.csv
+  validation_data:
+  - data/val_ref.csv
+  warmup_steps: 0
+  word_layer: 24
+  word_level_training: false
+model_type: unified_metric
+smt:
+  sparsity: 0.9
+trainer:
+  accelerator: gpu
+  accumulate_grad_batches: 8
+  barebones: false
+  benchmark: null
+  callbacks: null
+  check_val_every_n_epoch: 1
+  default_root_dir: null
+  detect_anomaly: false
+  deterministic: false
+  devices: 1
+  enable_checkpointing: null
+  enable_model_summary: true
+  enable_progress_bar: true
+  fast_dev_run: false
+  gradient_clip_algorithm: norm
+  gradient_clip_val: 1.0
+  inference_mode: true
+  limit_predict_batches: 1.0
+  limit_test_batches: 1.0
+  limit_train_batches: 1.0
+  limit_val_batches: 1.0
+  log_every_n_steps: 50
+  logger: null
+  max_epochs: 5
+  max_steps: -1
+  max_time: null
+  min_epochs: 1
+  min_steps: null
+  num_nodes: 1
+  num_sanity_val_steps: 3
+  overfit_batches: 0
+  plugins: null
+  precision: null
+  profiler: null
+  reload_dataloaders_every_n_epochs: 0
+  strategy: ddp
+  sync_batchnorm: false
+  use_distributed_sampler: true
+  val_check_interval: 1.0
+training:
+  seed: 12
+  test_file: data/test.csv
+  warmup_ratio: 0.1
